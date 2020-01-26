@@ -27,8 +27,8 @@ function yellow(){
 install_nginx(){
     green "====编译安装nginx耗时时间较长，请耐心等待===="
     sleep 1
-    systemctl stop firewalld
-    systemctl disable firewalld
+    #systemctl stop firewalld
+    #systemctl disable firewalld
     CHECK=$(grep SELINUX= /etc/selinux/config | grep -v "#")
     if [ "$CHECK" == "SELINUX=enforcing" ]; then
         sed -i 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
